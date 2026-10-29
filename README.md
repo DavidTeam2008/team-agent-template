@@ -17,6 +17,7 @@
 | [references/review.md](references/review.md) | L2 独立对抗审查、提示词、harness 对照 | 按需 |
 | [scripts/sync_team_baseline.py](scripts/sync_team_baseline.py) | 同步团队基线 | 手动或 CI |
 | [scripts/check_rules.py](scripts/check_rules.py) | 校验文件、基线、链接、预算、密钥 | 手动或 CI |
+| [docs/adoption.md](docs/adoption.md) | 新项目接入清单（30~60 分钟） | 接入时读 |
 
 默认只加载 `AGENTS.md`；references 由第 5 节的触发表按需读取，每个预算 ≤800 tokens。
 
