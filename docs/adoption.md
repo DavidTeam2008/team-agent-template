@@ -2,7 +2,7 @@
 
 > 目标：30~60 分钟把团队规则接进一个新仓。只采纳骨架，不复制整个模版仓。
 > 适用：iOS / React Native / Web / 后端；按技术栈裁剪。
-> 参考实现（iOS）：`https://github.com/davidtan2008/scantool`。
+> 参考实现（iOS）：`https://github.com/DavidTeam2008/scantool`。
 
 ## 0. 先判断三件事
 
@@ -88,14 +88,13 @@ mkdir -p Tools .github/workflows
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: actions/checkout@v4
-  with:
-    repository: davidtan2008/team-agent-template
-    path: .team-rules
-    token: ${{ secrets.TEAM_RULES_TOKEN }}
+- run: git clone --depth 1 https://github.com/DavidTeam2008/team-agent-template.git .team-rules
 - run: python3 .team-rules/scripts/sync_team_baseline.py --check AGENTS.md
 - run: python3 Tools/check-docs.py
 ```
+
+模板仓已 public，直接匿名 clone；若以后改回私有，改用 `actions/checkout` +
+`TEAM_RULES_TOKEN`（只读）。
 
 私有模版仓必须配 `TEAM_RULES_TOKEN`（只读）；未配置时建议跳过基线校验并告警，
 不要让 CI 长期红。
